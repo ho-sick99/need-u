@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import "./sign_up.css";
 
-const Sign_up = () =>{
-    
+const Sign_up = () => {
+
     const [id, setId] = useState('');
     const [email, setEmail] = useState('');
     const [nickname, setNickname] = useState('');
@@ -25,12 +25,22 @@ const Sign_up = () =>{
     };
 
     //저장완료
-    function handleSubmit(event) {
-        event.preventDefault(); 
-        console.log('id:', id);
-        console.log('email:', email);
-        console.log('nickname:', nickname);
-        console.log('password:', password);
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const res = await (await fetch("/needu-backend/sign_up", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                "mid": id,
+                "email": email,
+                "nickname": nickname,
+                "password": password
+            }),
+        })).json();
+
+        console.log(res);
     }
 
     return (
@@ -46,7 +56,7 @@ const Sign_up = () =>{
                     <label>E-mail</label>
                 </div>
 
-                <div class="user-box">``
+                <div class="user-box">
                     <input type="text" value={nickname} onChange={handleNicknameChange}></input>
                     <label>Nickname</label>
                 </div>

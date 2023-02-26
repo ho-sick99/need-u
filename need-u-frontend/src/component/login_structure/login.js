@@ -4,8 +4,8 @@ import "./login.css";
 // https://eunhee-programming.tistory.com/194
 
 const Login = () => {
-    useEffect(() => {
-        fetch("/needu-backend/sign_in", {
+    useEffect(async () => {
+        console.log(await (await fetch("/needu-backend/sign_in", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -14,10 +14,7 @@ const Login = () => {
                 "mid": "USER2",
                 "password": "USER2"
             }),
-        })
-            .then((res) => {
-                console.log(res);
-            })
+        })).json());
     });
 
     return (

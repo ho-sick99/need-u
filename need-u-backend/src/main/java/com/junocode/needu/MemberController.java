@@ -1,11 +1,16 @@
 package com.junocode.needu;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.junocode.needu.vo.MemberVo;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.junocode.needu.dao.MemberDao;
 
 @RestController
@@ -28,29 +33,52 @@ public class MemberController {
 			e.printStackTrace();
 			msg += e;
 		}
+		
+		Map<String, Object> data = new HashMap<String, Object>();
+		data.put("msg", msg);
 
-		return msg;
+		String resJson = "";
+		try {
+			resJson = new ObjectMapper().writeValueAsString(data);
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		}
+
+		return resJson;
 	}
 
 	// 로그인
 	@PostMapping("/sign_in")
-	public Object sign_in(@RequestBody MemberVo vo) {
+	public String sign_in(@RequestBody MemberVo vo) {
 		System.out.println(vo);
 		System.out.println(vo.getClass());
 
+		String msg = "";
 		MemberVo user = null;
 		user = memberDao.selectOne(vo.getMid()); // 입력받은 mid와 동일한 아이디 db에서 탐색후 정보 반환
-		
+
 		if (user == null) { // 유저 정보가 존재하지 않을 경우
-			return "User doesn't exist";
+			msg += "User doesn't exist";
 		} else {
 			if (user.getPassword().equals(vo.getPassword())) { // db 상의 비밀번호와 입력받은 비밀번호 일치할 경우
-				return "success";
+				msg += "success";
 			} else { // 비밀번호가 일치하지 않을 경우
-				return "Passwords do not match";
+				msg += "Passwords do not match";
 			}
 		}
 
+		Map<String, Object> data = new HashMap<String, Object>();
+		data.put("user", user);
+		data.put("msg", msg);
+
+		String resJson = "";
+		try {
+			resJson = new ObjectMapper().writeValueAsString(data);
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		}
+
+		return resJson;
 	}
 
 }
