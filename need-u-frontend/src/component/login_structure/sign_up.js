@@ -12,7 +12,6 @@ const Sign_up = () =>{
                     <input type="text" name="" required=""></input>
                     <label>ID</label>
                 </div>
-
                 <div class="user-box">
                     <input type="email" name="" required=""></input>
                     <label>E-mail</label>
