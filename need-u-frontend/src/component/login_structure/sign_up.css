@@ -62,7 +62,7 @@ html {
     font-size: 12px;
   }
   
-  .sign_up-box form a {
+  .sign_up-box form button {
     position: relative;
     display: inline-block;
     padding: 10px 20px;
@@ -76,7 +76,7 @@ html {
     letter-spacing: 4px
   }
   
-  .sign_up-box a:hover {
+  .sign_up-box button:hover {
     background: #bb87ff;
     color: #fff;
     border-radius: 5px;
@@ -86,7 +86,7 @@ html {
                 0 0 100px #bb87ff;
   }
   
-  .sign_up-box a span {
+  .sign_up-box button span {
     position: absolute;
     display: block;
   }
@@ -109,7 +109,7 @@ html {
     }
   }
   
-  .sign_up-box a span:nth-child(2) {
+  .sign_up-box button span:nth-child(2) {
     top: -100%;
     right: 0;
     width: 2px;
@@ -128,7 +128,7 @@ html {
     }
   }
   
-  .sign_up-box a span:nth-child(3) {
+  .sign_up-box button span:nth-child(3) {
     bottom: 0;
     right: -100%;
     width: 100%;
@@ -147,7 +147,7 @@ html {
     }
   }
   
-  .sign_up-box a span:nth-child(4) {
+  .sign_up-box button span:nth-child(4) {
     bottom: -100%;
     left: 0;
     width: 2px;
