@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap');
+
+/* 헤더 전체 */
+.home_header_body{
+    display:flex;
+    justify-content: space-between;
+}
+
+/* 카테고리1_로고*/
+.home_header_kategory_1{
+    display: flex;
+    align-items: center;
+}
+
+/* 로고*/
+.home_header_kategory_1 img{
+    height: 120px;
+    width: 300px;
+    margin-left: 10px;
+}
+
+/* 카테고리2_게시글 보기 및 쓰기*/
+.home_header_kategory_2{
+    display: flex;
+    align-items: center;
+}
+
+/*카테고리2_리스트*/
+.home_header_kategory_2_list{
+    display: flex;
+    width: 300px;
+    margin-top: 20px;
+    justify-content: space-evenly;
+}
+
+.home_header_kategory_2_list div{
+    color: #893EF6;
+    background-color: white;
+    text-align: center;
+    width: 100px;
+    padding: 5px;
+    border-radius: 5px;
+    font-family: 'Bowlby One', cursive;
+    cursor: pointer;
+}
+
+/* 카테고리3_로그인 및 회원가입*/
+.home_header_kategory_3{
+    display: flex;
+    align-items: center;
+}
+
+/*카테고리3_리스트*/
+.home_header_kategory_3_list{
+    display: flex;
+    width: 300px;
+    margin-top: 20px;
+    justify-content: space-evenly;
+    cursor: pointer;
+}
+
+.home_header_kategory_3_list div{
+    color: white;
+    text-align: center;
+    width: 80px;
+    padding: 5px;
+    border: 3px solid;
+    border-radius: 7px;
+    font-family: 'Bowlby One', cursive;
+}
