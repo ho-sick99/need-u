@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- 프로퍼티 파일 삽입 (여러개면 콤마로 구분해서 한번에 넣어줄 수 있음) -->
+	<context:property-placeholder
+		location="classpath:application.yml" />
+
+	<!-- DB -->
+	<bean id="ds"
+		class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+		<property name="driverClass" value="org.mariadb.jdbc.Driver"></property>
+		<property name="url">
+			<value>${url}</value>
+		</property>
+		<property name="username">
+			<value>${user}</value>
+		</property>
+		<property name="password">
+			<value>${password}</value>
+		</property>
+	</bean>
+
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="ds"></property>
+		<property name="mapperLocations"
+			value="classpath*:/mybatis/mapper/*Mapper.xml"></property>
+	</bean>
+
+	<bean id="sqlSessionTemplate"
+		class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg name="sqlSessionFactory"
+			ref="sqlSessionFactory"></constructor-arg>
+	</bean>
+
+</beans>
