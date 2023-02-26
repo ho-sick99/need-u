@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap');
+
+.home_footer_body{
+    height: 99px;
+    /* background-color: aqua; */
+    /* background-color: rgb(0, 0, 0); */
+}
+
+/*투명선*/
+.home_footer_body_1_line{
+    width: 1700px;
+    height: 5px;
+    background-color: rgba(205, 185, 242, 0.594);
+    margin: auto;
+    border-radius: 50px;
+    margin-top: 10px;
+}
+
+/*copyright 및 github들*/
+.home_footer_body_2_container{
+    display: flex;
+    justify-content: space-between;
+}
+
+/*copyright*/
+.home_footer_body_2_container_copyright{
+    margin-top: 20px;
+    margin-left: 100px;
+    font-family: 'Bowlby One', cursive;
+    color: #ffffff;
+}
+
+/*contect*/
+.home_footer_body_2_container_contect{
+    margin-top: 10px;
+    margin-right: 100px;
+    font-family: 'Bowlby One', cursive;
+    color: #ffffff;
+}
+
+.home_footer_body_2_container_contect_m{
+    display: flex;
+    /* background-color: aqua; */
+    width: 90px;
+    justify-content: space-between;
+}
+.home_footer_body_2_container_contect_c{
+    margin-top: 5px;
+    display: flex;
+    /* background-color: aqua; */
+    width: 90px;
+    justify-content: space-between;
+}
+
+.Moon_img{
+    width: 25px;
+    height: 25px;
+}
+.Chan_img{
+    width: 25px;
+    height: 25px;
+}

@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap');
+
+/* 바디 전체 */
+.home_main_body{
+    /* background-color: aquamarine; */
+    display:flex;
+    height: 700px;
+}
+
+/*바디의 첫번째 카테고리*/
+.home_main_kategory_1{
+    width: 40%;
+    /* background-color: rgb(26, 49, 41); */
+    text-align: center;
+}
+/* 바디의 첫번째 카테고리 - 텍스트*/
+.home_main_kategory_1_text {
+    margin-top: 200px;
+    font-family: 'Bowlby One', cursive;
+    color: #ffffff;
+    font-size: 40px;
+}
+
+
+/*바디의 두번째 카테고리*/
+.home_main_kategory_2{
+    /* background-color: rgb(145, 198, 164); */
+    width: 60%;
+    position: relative; 
+}
