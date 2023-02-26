@@ -2,6 +2,8 @@ import React from 'react';
 import "./sign_up.css";
 
 const Sign_up = () =>{
+    
+
     return (
         <div class="sign_up-box">
             <h2>Sign Up</h2>
@@ -12,6 +14,16 @@ const Sign_up = () =>{
                 </div>
 
                 <div class="user-box">
+                    <input type="email" name="" required=""></input>
+                    <label>E-mail</label>
+                </div>
+
+                <div class="user-box">
+                    <input type="text" name="" required=""></input>
+                    <label>Nickname</label>
+                </div>
+
+                <div class="user-box">
                     <input type="password" name="" required=""></input>
                     <label>Password</label>
                 </div>
@@ -19,11 +31,6 @@ const Sign_up = () =>{
                 <div class="user-box">
                     <input type="password" name="" required=""></input>
                     <label>Verify Password</label>
-                </div>
-
-                <div class="user-box">
-                    <input type="text" name="" required=""></input>
-                    <label>Nickname</label>
                 </div>
 
                 <a href="#">
