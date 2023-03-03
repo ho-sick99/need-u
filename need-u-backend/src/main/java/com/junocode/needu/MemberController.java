@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.junocode.needu.vo.MemberVo;
+import com.junocode.needu.dto.MemberDto;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.junocode.needu.dao.MemberDao;
@@ -23,7 +23,7 @@ public class MemberController {
 
 	// 회원가입
 	@PostMapping("/sign_up")
-	public String sign_up(@RequestBody MemberVo vo) {
+	public String sign_up(@RequestBody MemberDto vo) {
 
 		String msg = "";
 		try {
@@ -48,19 +48,22 @@ public class MemberController {
 	}
 
 	// 로그인
-	@PostMapping("/sign_in")
-	public String sign_in(@RequestBody MemberVo vo) {
-		System.out.println(vo);
-		System.out.println(vo.getClass());
+	@PostMapping("/login")
+	public String login(@RequestBody MemberDto dto) {
+		System.out.println(dto);
+		System.out.println(dto);
 
-		String msg = "";
-		MemberVo user = null;
-		user = memberDao.selectOne(vo.getMid()); // 입력받은 mid와 동일한 아이디 db에서 탐색후 정보 반환
+		Boolean res = false; // 로그인 성공 여부
+		String msg = ""; // 로그인 성공 여부 메시지
+		MemberDto user = null; // 유저 정보
+		
+		// 서비스 코드
+		user = memberDao.selectOne(dto.getMid()); // 입력받은 mid와 동일한 아이디 db에서 탐색후 정보 반환
 
 		if (user == null) { // 유저 정보가 존재하지 않을 경우
 			msg += "User doesn't exist";
 		} else {
-			if (user.getPassword().equals(vo.getPassword())) { // db 상의 비밀번호와 입력받은 비밀번호 일치할 경우
+			if (user.getPassword().equals(dto.getPassword())) { // db 상의 비밀번호와 입력받은 비밀번호 일치할 경우
 				msg += "success";
 			} else { // 비밀번호가 일치하지 않을 경우
 				msg += "Passwords do not match";

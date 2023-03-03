@@ -1,12 +1,12 @@
-package com.junocode.needu.vo;
+package com.junocode.needu.dto;
 
-public class MemberVo {
+public class MemberDto {
 	private String mid, nickname, email, password;
 
-	public MemberVo() {
+	public MemberDto() {
 	}
 	
-	public MemberVo(String mid, String nickname, String email, String password) {
+	public MemberDto(String mid, String nickname, String email, String password) {
 		this.mid = mid;
 		this.nickname = nickname;
 		this.email = email;
