@@ -21,6 +21,10 @@ export default createStore(function(state, action){
         return {...state, number: 4}
     }
 
+    if(action.type === "FIND"){
+        return {...state, number: 5}
+    }
+
     return state
 
 }, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())

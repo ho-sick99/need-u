@@ -16,7 +16,9 @@ export default class Home_header extends Component{
                 {/* 게시글 보기 및 쓰기 */}
                 <div className="home_header_kategory_2">
                     <div className="home_header_kategory_2_list">
-                        <div onClick={() => alert('미완성')}>FIND</div>
+                        <div onClick={function(){
+                            store.dispatch({type:"FIND"});
+                        }.bind(this)}>FIND</div>
 
                         <div onClick={function(){
                             store.dispatch({type:"POST"});
