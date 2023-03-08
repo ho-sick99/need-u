@@ -5,6 +5,8 @@ import java.util.Date;
 
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
 import org.springframework.stereotype.Component;
 
 import io.jsonwebtoken.Jwts;
@@ -21,15 +23,17 @@ import io.jsonwebtoken.security.Keys;
  *
  */
 @Component
+@PropertySource("classpath:application.yml")
 public class TokenProvider implements InitializingBean {
 	private final String secret;
 	private final long tokenValidityInSeconds;
 	private Key key;
 
-	public TokenProvider(@Value("${jwt.secret}") String secret,
-			@Value("${jwt.token-validity-in-seconds}") long tokenValidityInSeconds) {
+	public TokenProvider(@Value("${secret}") String secret,
+			@Value("${token-validity-in-seconds}") long tokenValidityInSeconds) {
 		this.secret = secret;
 		this.tokenValidityInSeconds = tokenValidityInSeconds;
+		System.out.println(secret);
 	}
 
 	@Override
