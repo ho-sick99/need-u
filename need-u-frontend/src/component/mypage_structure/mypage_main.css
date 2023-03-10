@@ -1,0 +1,462 @@
+.mypage_main_body_content_1{
+    background: linear-gradient(135deg, rgb(65, 3, 146), rgb(139, 112, 248), rgb(213, 175, 246));
+    height: 250px;
+    width: 100%;
+}
+
+.mypage_main_body_content_2{
+    background-color: rgb(255, 255, 255);
+    height: 631px;
+    width: 100%;
+}
+
+.mypage_to_home{
+    position: absolute;
+    height: 30px;
+    width : 120px;
+    /* background-color: bisque; */
+    top: -20px;
+    left: 60px;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size: 17px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+.mypage_to_home:hover{
+    color: #d2bdf7;
+}
+
+.mypage_main_body_content_2_main_page{
+    position: relative;
+    background-color: rgb(244, 244, 244);
+    height: 700px;
+    width: 1300px;
+    padding: 3px;
+
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    /* box-shadow: 0 0px 3px 0 rgb(0, 0, 0); */
+    
+}
+
+.mypage_main_body_content_2_main_page_1{
+    height: 100%;
+    width: 350px;
+    background-color: rgb(244, 244, 244);
+}
+
+.mypage_main_body_content_2_main_page_2{
+    height: 100%;
+    width: 1048px;
+    background-color: rgb(255, 255, 255);
+    margin-left: 3px;
+}
+
+.profile{
+    width: 100%;
+    height: 400px;
+    background-color: rgb(255, 255, 255);
+}
+
+.profile_photo{
+    /* background-color: black; */
+    width: 200px;
+    height: 200px;
+    color: rgb(95, 18, 204);
+    font-weight: bold;
+    font-size: 30px;
+    display: inline-block;
+    text-align: center;
+
+    border-radius: 50%;
+    margin-top: 30px;
+    margin-left: 63px;
+}
+
+.profile_photo_img{
+    width: 200px;
+    height: 200px;
+}
+
+.profile_name{
+    height: 40px;
+    width: 60px;
+    background-color: white;
+    font-size: 20px;
+    font-weight: bold;
+
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.profile_under{
+    width: 100%;
+    height: 297px;
+    margin-top: 3px;
+    background-color: rgb(255, 255, 255);
+}
+
+
+
+.profile_under_logout{
+    width: 200px;
+    height: 50px;
+    background:#46504d;
+    margin-top: 20px;
+    
+
+    display: inline-block;
+    text-align: center;
+    line-height: 50px;
+
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 17px;
+
+    border-radius: 50px;
+    border:none;
+
+    margin-left: 63px;
+    cursor: pointer;
+
+}
+
+.profile_under_logout:hover{
+    background:#a0a0a0;
+    color:#343434;
+}
+
+.status_text_content{
+    /* background-color: #d2bdf7; */
+    width: 300px;
+    margin-top: 25px;
+    margin-left: 95px;
+    display: flex;
+}
+
+.status_text{
+    color: black;
+    font-size: 25px;
+    font-weight: bold;
+
+}
+
+.status_text_upload{
+    width: 60px;
+    height: 20px;
+    background-color: rgb(94, 22, 219);
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    font-weight: bold;
+
+    display: inline-block;
+    text-align: center;
+    margin-top: 7px;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+
+.status_text_request{
+    width: 60px;
+    height: 20px;
+    background-color: rgb(191, 123, 255);
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    font-weight: bold;
+
+    display: inline-block;
+    text-align: center;
+    margin-top: 7px;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+
+.status_content{
+    background-color: rgb(243, 243, 243);
+    width: 800px;
+    height: 300px;
+    margin-top: 5px;
+    margin-left: 80px;
+
+    border-radius: 20px;
+    box-shadow: 0 0px 3px 0 rgb(0, 0, 0);
+    padding: 1px;
+}
+
+.status_content_1{
+    background-color: rgb(243, 243, 243);
+    width: 100%;
+    height: 200px;
+
+    border-radius: 20px 20px 0px 0px;
+    justify-content: space-between;
+    display: flex;
+}
+
+.status_content_1_1{
+    background-color: #46504d;
+    width: 33.3%;
+    height: 200px;
+
+    border-radius: 20px 0px 0px 0px;
+}
+
+.status_content_1_2{
+    background-color: #46504d;
+    width: 33.2%;
+    height: 200px;
+
+    border-radius: 0px 0px 0px 0px;
+}
+
+.status_content_1_3{
+    background-color: #46504d;
+    width: 33.2%;
+    height: 200px;
+
+    border-radius: 0px 20px 0px 0px;
+}
+
+.status_content_2{
+    /* background-color: #d2bdf7; */
+    width: 100%;
+    height: 100px;
+    display: flex;
+}
+
+/*숫자 나오는 부분*/
+.status_content_2_1{
+    /* background-color: #33dba9; */
+    width: 33.3%;
+    height: 99px;
+    margin-top: 1px;
+    border-radius: 0px 0px 0px 20px ;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.status_content_2_2{
+    /* background-color: #164f73; */
+    width: 33.3%;
+    height: 99px;
+    margin-top: 1px;
+    border-radius: 0px 0px 0px 0px ;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.status_content_2_3{
+    /* background-color: #9b9924; */
+    width: 33.3%;
+    height: 99px;
+    margin-top: 1px;
+    border-radius: 0px 0px 20px 0px ;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/*포로젝트 스터디 공모전*/
+.status_content_1_1_project{
+    background-color: rgb(255, 255, 255);
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+
+    margin-top: 10px;
+    margin-left: 45px;
+    cursor: pointer;
+}
+.status_content_1_1_project:hover{
+    background-color: rgb(197, 197, 197);
+}
+.project{
+    width: 100px;
+    height: 100px;
+    margin-top: 35px;
+    margin-left: 62px;
+}
+
+.status_content_1_2_study{
+    background-color: rgb(255, 255, 255);
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+
+    margin-top: 10px;
+    margin-left: 45px;
+    cursor: pointer;
+
+}
+.status_content_1_2_study:hover{
+    background-color: rgb(197, 197, 197);
+}
+.study{
+    width: 100px;
+    height: 100px;
+    margin-top: 39px;
+    margin-left: 45px;
+}
+
+.status_content_1_3_contest{
+    background-color: rgb(255, 255, 255);
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin-top: 10px;
+    margin-left: 43px;
+    cursor: pointer;
+
+}
+.status_content_1_3_contest:hover{
+    background-color: rgb(197, 197, 197);
+}
+.contest{
+    width: 100px;
+    height: 100px;
+    margin-top: 42px;
+    margin-left: 40px;
+}
+
+/*요청 및 request*/
+.status_content_2_1_post{
+    width: 80px;
+    height: 80px;
+    background-color: rgb(94, 22, 219);
+    border-radius: 50px;
+    margin-top: 9px;
+
+    display: inline-block;
+    text-align: center;
+    line-height: 80px;
+    font-weight: bold;
+    color: white;
+    font-size: 25px;
+}
+.status_content_2_1_request{
+    width: 80px;
+    height: 80px;
+    background-color: rgb(191, 123, 255);
+    border-radius: 50px;
+    margin-top: 9px;
+
+    display: inline-block;
+    text-align: center;
+    line-height: 80px;
+    font-weight: bold;
+    color: white;
+    font-size: 25px;
+}
+
+.status_content_2_2_post{
+    width: 80px;
+    height: 80px;
+    background-color: rgb(94, 22, 219);
+    border-radius: 50px;
+    margin-top: 9px;
+
+    display: inline-block;
+    text-align: center;
+    line-height: 80px;
+    font-weight: bold;
+    color: white;
+    font-size: 25px;
+}
+.status_content_2_2_request{
+    width: 80px;
+    height: 80px;
+    background-color: rgb(191, 123, 255);
+    border-radius: 50px;
+    margin-top: 9px;
+
+    display: inline-block;
+    text-align: center;
+    line-height: 80px;
+    font-weight: bold;
+    color: white;
+    font-size: 25px;
+}
+
+.status_content_2_3_post{
+    width: 80px;
+    height: 80px;
+    background-color: rgb(94, 22, 219);
+    border-radius: 50px;
+    margin-top: 9px;
+
+    display: inline-block;
+    text-align: center;
+    line-height: 80px;
+    font-weight: bold;
+    color: white;
+    font-size: 25px;
+}
+.status_content_2_3_request{
+    width: 80px;
+    height: 80px;
+    background-color: rgb(191, 123, 255);
+    border-radius: 50px;
+    margin-top: 9px;
+
+    display: inline-block;
+    text-align: center;
+    line-height: 80px;
+    font-weight: bold;
+    color: white;
+    font-size: 25px;
+}
+
+.message_content{
+    /* background-color: antiquewhite; */
+    width: 800px;
+    height: 250px;
+    margin-top: 40px;
+    margin-left: 80px;
+    display: flex;
+
+}
+
+.message{
+    width: 200px;
+    height: 200px;
+    margin-top: 24px;
+}
+
+.message_alarm{
+    position: relative;
+    width: 50px;
+    height: 47px;
+    background-color: red;
+    border-radius: 50px;
+
+    margin-top: 30px;
+    margin-left: -30px;
+    display: inline-block;
+    text-align: center;
+    line-height: 47px;
+    font-weight: bold;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+}
+.message_alarm:hover{
+    background-color: rgb(255, 89, 89);
+}
+
+.chat{
+    background-color: rgb(243, 243, 243);
+    width: 600px;
+    height: auto;
+    margin-left: 10px;
+    border-radius: 20px;
+    box-shadow: 0 0px 15px 0 rgb(0, 0, 0);
+    padding: 20px;
+    white-space: pre-wrap;
+    font-weight: bold;
+}

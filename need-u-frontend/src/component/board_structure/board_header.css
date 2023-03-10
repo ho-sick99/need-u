@@ -8,17 +8,36 @@
     justify-content: space-between;
 }
 
+.gotohome_text{
+    color: white;
+    margin-left: 30px; 
+    width: 200px;
+    cursor: pointer;
+}
+.gotohome_text:hover{
+    color: rgb(209, 209, 209);
+}
+
 .hello_text{
     color: white;
-    margin-left: 20px;
 }
 
 .board_mypage{
     height: 50px;
-    width: 100px;
-    background-color: rgb(255, 255, 255);
+    width: 200px;
+
     margin-top: 10px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: right;
+    align-items: right;
+
     margin-right: 30px;
+}
+.baord_to_mypage{
+    height: 50px;
+    width: 50px;
+    cursor:pointer;
 }
 
 /* 컨테이너2 */
@@ -36,12 +55,50 @@
     width: 280px; /* 원하는 너비설정 */
     padding: .8em .5em; /* 여백으로 높이 설정 */
 
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 12px 13px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+
 }
+
+.select_one:focus{
+    border: 3px solid #4c00ef;
+    box-sizing: border-box;
+    border-radius: 10px;
+    outline: 3px solid #ece0f0;
+    border-radius: 10px;
+}
+
+
 
 .select_two {
     height: 60px;
     width: 280px; /* 원하는 너비설정 */
     padding: .8em .5em; /* 여백으로 높이 설정 */
+
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 12px 13px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.select_two:focus{
+    border: 3px solid #4c00ef;
+    box-sizing: border-box;
+    border-radius: 10px;
+    outline: 3px solid #ece0f0;
+    border-radius: 10px;
 }
 
 .select_three {
@@ -49,18 +106,64 @@
     width: 450px; /* 원하는 너비설정 */
     padding: .8em .5em; /* 여백으로 높이 설정 */
 
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 12px 13px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
 }
 
-.button_one {
-    height: 60px;
-    background-color: white;
-    width: 300px; /* 원하는 너비설정 */
-    padding: .8em .5em; /* 여백으로 높이 설정 */
+.select_three:focus{
+    border: 3px solid #4c00ef;
+    box-sizing: border-box;
+    border-radius: 10px;
+    outline: 3px solid #ece0f0;
+    border-radius: 10px;
 }
 
-.button_two {
-    height: 60px;
-    background-color: white;
-    width: 300px; /* 원하는 너비설정 */
-    padding: .8em .5em; /* 여백으로 높이 설정 */
+
+/*******************/
+.button_one{
+    background:#46504d;
+    color:#fff;
+    border:none;
+    position:relative;
+    height:60px;
+    width: 300px;
+    font-size:20px;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+    border-radius: 50px;
+}
+.button_one:hover{
+    background:#a0a0a0;
+    color:#343434;
+}
+
+
+/*******************/
+
+.button_two{
+    background:#46504d;
+    color:#fff;
+    border:none;
+    position:relative;
+    height:60px;
+    width: 300px;
+    font-size:20px;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+    border-radius: 50px;
+}
+.button_two:hover{
+    background:#a0a0a0;
+    color:#343434;
 }
