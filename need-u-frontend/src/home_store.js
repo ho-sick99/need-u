@@ -5,6 +5,10 @@ export default createStore(function(state, action){
         return {number : 0}
     }
 
+    if(action.type === "HOME"){
+        return {...state, number : 0}
+    }
+
     if(action.type === "LOGIN"){
         return {...state, number: 1}
     }
@@ -24,6 +28,11 @@ export default createStore(function(state, action){
     if(action.type === "FIND"){
         return {...state, number: 5}
     }
+
+    if(action.type === "MYPAGE"){
+        return {...state, number: 6}
+    }
+
 
     return state
 
