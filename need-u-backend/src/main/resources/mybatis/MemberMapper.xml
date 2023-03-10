@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.junocode.needu.mapper.MemberMapper">
+	<select id="selectOne" resultType="com.junocode.needu.dto.MemberDto">
+		select * from members where mid = #{mid}
+	</select>
+
+	<select id="selectAll" resultType="com.junocode.needu.dto.MemberDto">
+		select * from members ORDER BY id asc
+	</select>
+
+	<insert id="insert">
+		INSERT INTO members (mid, nickname, email, password)
+		VALUES(#{mid}, #{nickname}, #{email}, #{password})
+	</insert>
+
+	<update id="update">
+		update member
+		set name=#{name}, password=#{password}
+		where id=#{id}
+	</update>
+
+	<delete id="delete">
+		delete from member where id = #{id}
+	</delete>
+</mapper>

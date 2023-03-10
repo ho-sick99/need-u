@@ -1,0 +1,8 @@
+spring:
+  profiles:
+    active: server, db, jwt
+    
+mybatis:
+  mapper-locations: mybatis/*Mapper.xml
+#  configuration:
+#    map-underscore-to-camel-case: true
