@@ -1,0 +1,66 @@
+.mypage_header_body{
+    background-color: rgb(255, 255, 255);
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo_2{
+    margin-top: 10px;
+    margin-left: 13px;
+    width: 200px;
+    height: 60px;
+}
+
+.mypage_header_body_content{
+    margin-top: 15px;
+    margin-left: 10px;
+    width: 350px;
+    height: 50px;
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.mypage_header_body_content_1{
+    width: 130px;
+    height: 50px;
+
+    background:#46504d;
+    border-radius: 50px;
+    border:none;
+
+    display: inline-block;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.mypage_header_body_content_1:hover{
+    background:#a0a0a0;
+    color:#343434;
+}
+
+.mypage_header_body_content_2{
+    width: 130px;
+    height: 50px;
+    /* background-color: rgb(106, 212, 24); */
+
+    background:#46504d;
+    border-radius: 50px;
+    border:none;
+
+    display: inline-block;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.mypage_header_body_content_2:hover{
+    background:#a0a0a0;
+    color:#343434;
+}
