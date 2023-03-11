@@ -9,6 +9,6 @@ import lombok.Data;
  *
  */
 @Data
-public class Authority {
+public class AuthorityDto {
 	private String authorityName; // 권한
 }

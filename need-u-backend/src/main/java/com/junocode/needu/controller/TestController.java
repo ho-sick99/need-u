@@ -1,4 +1,4 @@
-package com.junocode.needu;
+package com.junocode.needu.controller;
 
 import java.util.List;
 

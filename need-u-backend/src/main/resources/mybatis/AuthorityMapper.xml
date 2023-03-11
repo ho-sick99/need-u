@@ -2,11 +2,9 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.junocode.needu.mapper.MemberMapper">
+<mapper namespace="com.junocode.needu.mapper.AuthorityMapper">
 	<select id="selectOne" resultType="com.junocode.needu.dto.MemberDto">
-		select * 
-		from members, user_authority, authority 
-		where user.mid = #{mid} and user.mid = user_authority.mid and user_authority.authority_name = authority.authority_name
+		select * from members where mid = #{mid}
 	</select>
 
 	<select id="selectAll" resultType="com.junocode.needu.dto.MemberDto">
