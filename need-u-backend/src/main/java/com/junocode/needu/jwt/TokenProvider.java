@@ -1,6 +1,5 @@
 package com.junocode.needu.jwt;
 
-import java.io.Console;
 import java.security.Key;
 import java.util.Arrays;
 import java.util.Collection;
@@ -17,7 +16,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Component;
 
-import ch.qos.logback.classic.Logger;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;

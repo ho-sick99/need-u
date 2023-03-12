@@ -6,27 +6,28 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.junocode.needu.dto.MemberDto;
+import com.junocode.needu.entity.Member;
+
 
 @Repository 
 public class MemberDao {
 	@Autowired
 	private SqlSession session;
 	
-	public void insert(MemberDto vo) {
+	public void insert(Member vo) {
 		System.out.println(vo);
 		session.insert("MemberMapper.insert", vo);
 	}
 
-	public List<MemberDto> selectAll() {
+	public List<Member> selectAll() {
 		return session.selectList("MemberMapper.selectAll");
 	}
 
-	public MemberDto selectOne(String mid) {
+	public Member selectOne(String mid) {
 		return session.selectOne("MemberMapper.selectOne", mid);
 	}
 
-	public void update(MemberDto vo) {
+	public void update(Member vo) {
 		session.update("MemberMapper.update", vo);
 	}
 
