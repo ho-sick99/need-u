@@ -2,7 +2,7 @@ package com.junocode.needu.dto;
 
 import lombok.Data;
 
-@Data // getter, setter, tostring, constructors
+@Data
 public class LoginDto {
 	private String mid, password;
 }

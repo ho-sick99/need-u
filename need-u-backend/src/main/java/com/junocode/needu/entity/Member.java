@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class Member {
-	private String mid, nickname, email, password;
+	private String mid, nickname, email, password, join_date;
 }

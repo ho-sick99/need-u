@@ -2,15 +2,15 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.junocode.needu.mapper.MemberMapper">
+<mapper namespace="MemberMapper">
 	<select id="selectOne"
 		resultType="com.junocode.needu.entity.Member">
-		select * from member where id=#{id}
+		select * from member where mid=#{mid}
 	</select>
 
 	<select id="selectAll"
 		resultType="com.junocode.needu.entity.Member">
-		select * from member ORDER BY id asc
+		select * from member
 	</select>
 
 	<insert id="insert">

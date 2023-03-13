@@ -3,7 +3,6 @@ package com.junocode.needu.dao;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.junocode.needu.entity.Member;
@@ -11,8 +10,11 @@ import com.junocode.needu.entity.Member;
 
 @Repository 
 public class MemberDao {
-	@Autowired
-	private SqlSession session;
+	private final SqlSession session;
+	
+	public MemberDao(SqlSession session) {
+		this.session = session;
+	}
 	
 	public void insert(Member vo) {
 		System.out.println(vo);

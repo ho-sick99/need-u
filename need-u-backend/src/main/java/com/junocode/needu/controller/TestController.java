@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.junocode.needu.dto.MemberDto;
+import com.junocode.needu.entity.Member;
 import com.junocode.needu.service.SampleService;
 
 @RestController
@@ -20,7 +20,7 @@ public class TestController {
 
 	@GetMapping("/index")
 	public String index() {
-		List<MemberDto> memList = sampleService.selectTest();
+		List<Member> memList = sampleService.selectTest();
 		System.out.println("조회 테스트 : " + memList);
 		return memList.toString();
 	}

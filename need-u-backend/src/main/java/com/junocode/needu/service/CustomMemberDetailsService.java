@@ -40,25 +40,13 @@ public class CustomMemberDetailsService implements UserDetailsService {
 		}
 		return createUser(member); // 멤버 존재할 시 유저 객체 생성후 리턴
 	}
-
-//	   private org.springframework.security.core.userdetails.User createUser(String username, User user) { // 유저 생성 메서드
-//	      if (!user.isActivated()) { // 유저가 활성화되어있지 않음
-//	         throw new RuntimeException(username + " -> 활성화되어 있지 않습니다.");
-//	      }
-//l
-//	      List<GrantedAuthority> grantedAuthorities = user.getAuthorities().stream()
-//	              .map(authority -> new SimpleGrantedAuthority(authority.getAuthorityName()))
-//	              .collect(Collectors.toList());
-//
-//	      return new org.springframework.security.core.userdetails.User(user.getUsername(),
-//	              user.getPassword(),
-//	              grantedAuthorities); // 유저 아이디, 비밀번호와 권한을 통한 유저 객체 생성
+	
 	private User createUser(Member member) {
-
 		List<GrantedAuthority> authority = (authorityDao.selectAuthorityByMid(member.getMid())).stream()
-				.map(auth -> new SimpleGrantedAuthority(auth.getAuthority())) // 고려
+				.map(auth -> new SimpleGrantedAuthority(auth.getAuthority_name()))
 				.collect(Collectors.toList());// 해당 member의 권한 정보 반환
-		return new User(member.getMid(), member.getPassword(), authority);
+		System.out.println(authority);
+		return new User(member.getMid(), member.getPassword(), authority); // 유저 아이디, 비밀번호와 권한을 통한 유저 객체 생성
 	}
 
 }
