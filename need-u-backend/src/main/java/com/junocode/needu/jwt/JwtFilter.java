@@ -14,7 +14,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.filter.GenericFilterBean;
 
 public class JwtFilter extends GenericFilterBean {
-	public static final String AUTHORIZATION_HEADER = "Authorization";
+	public static final String AUTHORIZATION_HEADER = "Authorization"; // 헤더명
 
 	private TokenProvider tokenProvider;
 
@@ -26,9 +26,9 @@ public class JwtFilter extends GenericFilterBean {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
-		String jwt = resolveToken(httpServletRequest);
+		String jwt = resolveToken(httpServletRequest); // jwt 토큰 추출
 		String requestURL = httpServletRequest.getRequestURL().toString();
-
+		
 		if (StringUtils.hasText(jwt) && tokenProvider.validateToken(jwt)) {
 			Authentication authentication = tokenProvider.getAuthentication(jwt);
 			SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -41,11 +41,17 @@ public class JwtFilter extends GenericFilterBean {
 		chain.doFilter(request, response);
 	}
 
+	/**
+	 * Http 패킷에서 토큰 추출 메서드
+	 * 
+	 * @param request
+	 * @return
+	 */
 	private String resolveToken(HttpServletRequest request) {
-		String token = request.getHeader(AUTHORIZATION_HEADER);
+		String token = request.getHeader(AUTHORIZATION_HEADER); // Http 패킷 헤더에서 토큰 추출
 		if (StringUtils.hasText(token) && token.startsWith("Bearer ")) {
-			return token.substring(7);
+			return token.substring(7); // 순수 토큰 값만 반환
 		}
-		return null;
+		return null; // 토큰이 없을 경우 null 반환
 	}
 }
