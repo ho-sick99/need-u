@@ -34,8 +34,8 @@ const Login = () => {
         console.log(res.msg);
         if (res.status) { // 로그인 성공
             console.log("login success");
-            const jwt = res.jwt.token; // 토큰
-            console.log("token: " + jwt);
+            const token = res.jwt.token; // 토큰
+            console.log("token: " + token);
         } else { // 로그인 실패
             console.log("login fail")
         }
