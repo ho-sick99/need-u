@@ -25,12 +25,7 @@
 
 .post_body{
   width: 100%;
-  height: 490px;
-
-  display: flex;
-  justify-content: center; /* 수평 가운데 정렬 */
-  align-items: center; /* 수직 가운데 정렬 */
-
+  height: 460px;
 }
 
 .post_footer{
@@ -49,4 +44,97 @@
   width: 930px;
   height: 420px;
   background: rgba(0,0,0,.5);
+}
+
+.post_body_content1{
+  position: relative;
+  /* background-color: aquamarine; */
+  height: 40px;
+
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
+.post_body_content2{
+  position: relative;
+  /* background-color: aquamarine; */
+  height: 40px;
+
+  margin-top: 5px;
+  margin-left: 30px;
+  width: 937px;
+
+  display: flex;
+  justify-content: center; /* 수평 가운데 정렬 */
+  align-items: center; /* 수직 가운데 정렬 */
+  justify-content: space-between;
+}
+
+.post_body_content3 {
+  position: relative;
+  /* background-color: aquamarine; */
+  height: 340px;
+
+  margin-top: 5px;
+  margin-left: 30px;
+
+}
+
+
+.post_body_title{
+  width: 100px;
+  height: 40px;
+  background: rgba(0,0,0,.5);
+  font-weight: bold;
+  color: white;
+  /* border-radius: 10px; */
+
+  display: inline-block;
+  text-align: center;
+  line-height: 40px;
+
+}
+
+.post_body_write{
+  width: 100px;
+  height: 340px;
+  background: rgba(0,0,0,.5);
+  font-weight: bold;
+  color: white;
+  /* border-radius: 10px; */
+
+  display: inline-block;
+  text-align: center;
+  line-height: 340px;
+}
+
+.post_body_titlecontent{
+  position: absolute;
+  height: 34px;
+  width: 830px;
+}
+.post_body_writecontent{
+  position: absolute;
+  height: 335px;
+  width: 830px;
+}
+
+.post_body_content2_select_one{
+  width: 309px;
+  height: 40px;
+}
+
+.post_body_content2_select_two{
+  width: 309px;
+  height: 40px;
+}
+
+.post_body_content2_select_three{
+  width: 309px;
+  height: 40px;
+}
+
+.post_footer_button{
+  height: 100%;
+  width: 100%;
 }
