@@ -1,5 +1,8 @@
 package com.junocode.needu.service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.apache.ibatis.javassist.bytecode.DuplicateMemberException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -11,9 +14,7 @@ import org.springframework.stereotype.Service;
 import com.junocode.needu.dao.MemberAuthorityDao;
 import com.junocode.needu.dao.MemberDao;
 import com.junocode.needu.dto.LoginDto;
-import com.junocode.needu.dto.LoginRes;
 import com.junocode.needu.dto.MemberDto;
-import com.junocode.needu.dto.SignUpRes;
 import com.junocode.needu.dto.TokenDto;
 import com.junocode.needu.entity.Member;
 import com.junocode.needu.entity.MemberAuthority;
@@ -41,16 +42,18 @@ public class MemberService {
 	public TokenDto createToken(LoginDto dto) {
 		UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(dto.getMid(),
 				dto.getPassword());
-
 		Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
+		System.out.println(authentication);
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 
 		return new TokenDto(tokenProvider.createToken(authentication));
 	}
 
-	public LoginRes login(TokenDto jwt) {
-		LoginRes loginRes = new LoginRes();
+	public Map<String, String> login(LoginDto dto) {
+		TokenDto jwt = this.createToken(dto);
+		System.out.println(jwt);
 
+		Map<String, String> loginRes = new HashMap<>();
 		Boolean status;
 		String msg;
 
@@ -58,16 +61,16 @@ public class MemberService {
 		status = true;
 		msg = "로그인 성공";
 
-		loginRes.setStatus(true);
-		loginRes.setJwt(jwt);
-		loginRes.setMsg(msg);
+		loginRes.put("status", Boolean.toString(true));
+		loginRes.put("token", jwt.getToken());
+		loginRes.put("msg", msg);
 
 		// 로그인 실패(구현예쩡)
 
 		return loginRes;
 	}
 
-	public SignUpRes sign_up(MemberDto dto) throws DuplicateMemberException {
+	public Map<String, String> sign_up(MemberDto dto) throws DuplicateMemberException {
 		System.out.println(dto);
 		if (memberDao.selectOne(dto.getMid()) != null) { // DB에서 유저 정보 조회 실패 시
 			throw new DuplicateMemberException("이미 가입되어 있는 유저입니다."); // 중복 유저 예외처리
@@ -87,7 +90,7 @@ public class MemberService {
 			e.printStackTrace();
 		}
 
-		SignUpRes signUpRes = new SignUpRes();
+		Map<String,String> signUpRes = new HashMap<>();
 
 		Boolean status;
 		String msg;
@@ -98,9 +101,10 @@ public class MemberService {
 
 		// 회원가입 실패(구현예정)
 
-		signUpRes.setStatus(true);
-		signUpRes.setMsg(msg);
 
+		signUpRes.put("status", Boolean.toString(true));
+		signUpRes.put(msg, msg);
+		
 		return signUpRes;
 	}
 }

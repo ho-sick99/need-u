@@ -1,5 +1,7 @@
 package com.junocode.needu.controller;
 
+import java.util.Map;
+
 import org.apache.ibatis.javassist.bytecode.DuplicateMemberException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -10,9 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.junocode.needu.dto.LoginDto;
-import com.junocode.needu.dto.LoginRes;
 import com.junocode.needu.dto.MemberDto;
-import com.junocode.needu.dto.SignUpRes;
 import com.junocode.needu.jwt.JwtFilter;
 import com.junocode.needu.service.MemberService;
 import com.junocode.needu.dto.TokenDto;
@@ -30,18 +30,16 @@ public class MemberController {
 
 	// 회원가입
 	@PostMapping("/sign_up")
-	public ResponseEntity<SignUpRes> sign_up(@RequestBody MemberDto dto) throws DuplicateMemberException {
-		System.out.println(dto);
+	public ResponseEntity<Map<String, String>> sign_up(@RequestBody MemberDto dto) throws DuplicateMemberException {
 		return new ResponseEntity<>(memberService.sign_up(dto), HttpStatus.OK);
 	}
 
 	// 로그인
 	@PostMapping("/login")
-	public ResponseEntity<LoginRes> login(@RequestBody LoginDto dto) {
-		TokenDto jwt = memberService.createToken(dto);
-		LoginRes loginRes = memberService.login(jwt);
+	public ResponseEntity<Map<String, String>> login(@RequestBody LoginDto dto) {
+		Map<String, String> loginRes = memberService.login(dto);
 		HttpHeaders httpHeaders = new HttpHeaders();
-		httpHeaders.add(JwtFilter.AUTHORIZATION_HEADER, "Bearer " + jwt.getToken());
+		httpHeaders.add(JwtFilter.AUTHORIZATION_HEADER, "Bearer " + loginRes.get("token"));
 
 		return new ResponseEntity<>(loginRes, httpHeaders, HttpStatus.OK);
 	}

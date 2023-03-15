@@ -44,7 +44,7 @@ const Sign_up = () => {
         })).json();
 
         console.log(res.msg);
-        if (res.status) { // 회원가입 성공
+        if (res.status == "true") { // 회원가입 성공
             console.log("회원가입 성공");
         } else { // 회원가입 실패
             console.log("회원가입 실패");

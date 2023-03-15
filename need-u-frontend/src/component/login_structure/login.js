@@ -32,9 +32,9 @@ const Login = () => {
         })).json();
 
         console.log(res.msg);
-        if (res.status) { // 로그인 성공
+        if (res.status == "true") { // 로그인 성공
             console.log("login success");
-            const token = res.jwt.token; // 토큰
+            const token = res.token; // 토큰
             console.log("token: " + token);
         } else { // 로그인 실패
             console.log("login fail")
