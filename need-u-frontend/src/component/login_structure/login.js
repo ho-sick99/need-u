@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { hashing } from "./hashing"
 import "./login.css";
 
 
@@ -16,6 +17,9 @@ const Login = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        
+        const hashingPW = await hashing(password); // 비밀번호 해시화
+
         const res = await (await fetch("http://localhost:8088/member/login", {
             method: "POST",
             headers: {
@@ -23,7 +27,7 @@ const Login = () => {
             },
             body: JSON.stringify({
                 "mid": id,
-                "password": password
+                "password": hashingPW
             }),
         })).json();
 
