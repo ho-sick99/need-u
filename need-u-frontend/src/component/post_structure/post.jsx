@@ -18,6 +18,12 @@ const Post = () =>{
                             <input class = "post_body_titlecontent"></input>
                         </div>
 
+                        <div class="post_body_content2_before">
+                            <div class="post_body_content2_before_1">카테고리1</div>
+                            <div class="post_body_content2_before_2">카테고리2</div>
+                            <div class="post_body_content2_before_3">카테고리3</div>
+                        </div>
+
                         <div class="post_body_content2">
                             <select className="post_body_content2_select_one">
                                 <option selected >전체</option>
@@ -40,6 +46,8 @@ const Post = () =>{
                                 <option>비고</option>
                             </select>
                         </div>
+
+                        <div class="post_body_content2_after">첨부파일</div>
 
                         <div class="post_body_content3">
                             <div class="post_body_write">Content</div>
