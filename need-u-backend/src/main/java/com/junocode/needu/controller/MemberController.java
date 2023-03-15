@@ -30,8 +30,8 @@ public class MemberController {
 
 	// 회원가입
 	@PostMapping("/sign_up")
-	public SignUpRes sign_up(@RequestBody MemberDto dto) throws DuplicateMemberException {
-		return memberService.sign_up(dto);
+	public ResponseEntity<SignUpRes> sign_up(@RequestBody MemberDto dto) throws DuplicateMemberException {
+		return new ResponseEntity<>(memberService.sign_up(dto), HttpStatus.OK);
 	}
 
 	// 로그인
