@@ -16,9 +16,8 @@ public class MemberDao {
 		this.session = session;
 	}
 	
-	public void insert(Member vo) {
-		System.out.println(vo);
-		session.insert("MemberMapper.insert", vo);
+	public void insert(Member member) {
+		session.insert("MemberMapper.insert", member);
 	}
 
 	public List<Member> selectAll() {
@@ -36,4 +35,5 @@ public class MemberDao {
 	public void delete(int no) {
 		session.delete("MemberMapper.delete", no);
 	}
+
 }

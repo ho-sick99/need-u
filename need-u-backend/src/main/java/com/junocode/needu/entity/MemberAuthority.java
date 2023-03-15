@@ -5,6 +5,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class Member {
-	private String mid, nickname, email, password, join_date;
+public class MemberAuthority {
+	private String mid;
+	private int authority_id;
 }

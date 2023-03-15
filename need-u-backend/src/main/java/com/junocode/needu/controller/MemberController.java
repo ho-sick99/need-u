@@ -1,9 +1,6 @@
 package com.junocode.needu.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import org.apache.ibatis.javassist.bytecode.DuplicateMemberException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,12 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.junocode.needu.dto.LoginDto;
 import com.junocode.needu.dto.LoginRes;
 import com.junocode.needu.dto.MemberDto;
+import com.junocode.needu.dto.SignUpRes;
 import com.junocode.needu.jwt.JwtFilter;
 import com.junocode.needu.service.MemberService;
 import com.junocode.needu.dto.TokenDto;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.junocode.needu.dao.MemberDao;
 
 @RestController
 @RequestMapping("/member")
@@ -35,8 +30,8 @@ public class MemberController {
 
 	// 회원가입
 	@PostMapping("/sign_up")
-	public String sign_up(@RequestBody LoginDto dto) {
-		return MemberService.sign_up();
+	public SignUpRes sign_up(@RequestBody MemberDto dto) throws DuplicateMemberException {
+		return memberService.sign_up(dto);
 	}
 
 	// 로그인

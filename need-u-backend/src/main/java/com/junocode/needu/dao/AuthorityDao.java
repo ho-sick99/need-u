@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.junocode.needu.entity.Authority;
+import com.junocode.needu.entity.MemberAuthority;
 
 @Repository
 public class AuthorityDao {
@@ -18,4 +19,5 @@ public class AuthorityDao {
 	public List<Authority> selectAuthorityByMid(String mid) {
 		return session.selectList("AuthorityMapper.selectAuthorityByMid", mid);
 	}
+	
 }

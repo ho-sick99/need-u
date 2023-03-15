@@ -14,7 +14,7 @@
 	</select>
 
 	<insert id="insert">
-		INSERT INTO member (mid, nickname, email, password)
+		insert into member (mid, nickname, email, password)
 		VALUES(#{mid}, #{nickname}, #{email}, #{password})
 	</insert>
 

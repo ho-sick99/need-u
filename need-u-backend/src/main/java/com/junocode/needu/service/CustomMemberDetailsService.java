@@ -30,15 +30,15 @@ public class CustomMemberDetailsService implements UserDetailsService {
 
 	@Override
 	@Transactional
-	public UserDetails loadUserByUsername(final String mid) throws UsernameNotFoundException {
+	public UserDetails loadUserByUsername(final String mid) {
 		Member member = memberDao.selectOne(mid);
 		try {
 			if (member == null) { // 멤버 존재하지 않음
 				throw new UsernameNotFoundException(mid + " -> 데이터베이스에서 찾을 수 없습니다.");
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println(e);
+			return null;
 		}
 
 		return createUser(member); // 멤버 존재할 시 유저 객체 생성후 리턴
