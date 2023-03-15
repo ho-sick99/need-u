@@ -1,41 +1,54 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import "./login.css";
 
 // https://eunhee-programming.tistory.com/194
 
 const Login = () => {
-    useEffect(async () => {
-        console.log(await (await fetch("/needu-backend/sign_in", {
+    const [id, setId] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleidChange = (event) => {
+        console.log(event.target.value);
+        setId(event.target.value)
+    };
+
+    const handlePasswordChange = (event) => {
+        setPassword(event.target.value)
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        console.log(await (await fetch("http://localhost:8088/member/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                "mid": "USER2",
-                "password": "USER2"
+                "mid": id,
+                "password": password
             }),
         })).json());
-    });
+    }
 
     return (
         <div class="login-box">
             <h2>Login</h2>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div class="user-box">
-                    <input type="text" name="" required=""></input>
+                    <input type="text" value={id} onChange={handleidChange}></input>
                     <label>Username</label>
                 </div>
                 <div class="user-box">
-                    <input type="password" name="" required=""></input>
+                    <input type="password" value={password} onChange={handlePasswordChange}></input>
                     <label>Password</label>
                 </div>
-                <a href="#">
+                <button type="submit">
                     <span></span>
                     <span></span>
                     <span></span>
                     <span></span>
                     Submit
-                </a>
+                </button>
             </form>
         </div>
     )
