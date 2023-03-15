@@ -31,6 +31,7 @@ public class MemberController {
 	// 회원가입
 	@PostMapping("/sign_up")
 	public ResponseEntity<SignUpRes> sign_up(@RequestBody MemberDto dto) throws DuplicateMemberException {
+		System.out.println(dto);
 		return new ResponseEntity<>(memberService.sign_up(dto), HttpStatus.OK);
 	}
 

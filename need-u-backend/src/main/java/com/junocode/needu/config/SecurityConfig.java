@@ -1,4 +1,4 @@
-package com.junocode.needu.security;
+package com.junocode.needu.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
