@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class SignUpRes {
-	private boolean ststus;
+	private boolean status;
 	private String msg;
 }

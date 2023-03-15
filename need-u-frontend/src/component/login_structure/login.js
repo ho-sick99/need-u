@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import "./login.css";
 
-// https://eunhee-programming.tistory.com/194
 
 const Login = () => {
     const [id, setId] = useState('');
     const [password, setPassword] = useState('');
 
     const handleidChange = (event) => {
-        console.log(event.target.value);
         setId(event.target.value)
     };
 
@@ -18,7 +16,7 @@ const Login = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log(await (await fetch("http://localhost:8088/member/login", {
+        const res = await (await fetch("http://localhost:8088/member/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -27,7 +25,16 @@ const Login = () => {
                 "mid": id,
                 "password": password
             }),
-        })).json());
+        })).json();
+
+        console.log(res.msg);
+        if (res.status) { // 로그인 성공
+            console.log("login success");
+            const jwt = res.jwt.token; // 토큰
+            console.log("token: " + jwt);
+        } else { // 로그인 실패
+            console.log("login fail")
+        }
     }
 
     return (

@@ -8,7 +8,6 @@ const Sign_up = () => {
     const [password, setPassword] = useState('');
 
     const handleidChange = (event) => {
-        console.log(event.target.value);
         setId(event.target.value)
     };
 
@@ -27,7 +26,6 @@ const Sign_up = () => {
     //저장완료
     const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log(id, nickname, email, password)
         const res = await (await fetch("http://localhost:8088/member/sign_up", {
             method: "POST",
             headers: {
@@ -41,7 +39,12 @@ const Sign_up = () => {
             }),
         })).json();
 
-        console.log(res);
+        console.log(res.msg);
+        if (res.status) { // 회원가입 성공
+            console.log("회원가입 성공");
+        } else { // 회원가입 실패
+            console.log("회원가입 실패");
+        }
     }
 
     return (

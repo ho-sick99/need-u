@@ -98,7 +98,7 @@ public class MemberService {
 
 		// 회원가입 실패(구현예정)
 
-		signUpRes.setStstus(true);
+		signUpRes.setStatus(true);
 		signUpRes.setMsg(msg);
 
 		return signUpRes;
