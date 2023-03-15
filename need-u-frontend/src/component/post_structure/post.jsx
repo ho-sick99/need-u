@@ -4,35 +4,25 @@ import "./post.css";
 const Post = () =>{
     return (
         <div class="post-box">
-            <h2>Post</h2>
             <form>
-                <div class="user-box">
-                    <input type="text" name="" required=""></input>
-                    <label>1</label>
-                </div>
+                <div class="post_content">
+                    {/* 헤더 부분 */}
+                    <div class="post_header">
+                        <div class="post_header_text">POST</div>
+                    </div>
 
-                <div class="user-box">
-                    <input type="text" name="" required=""></input>
-                    <label>2</label>
-                </div>
+                    {/* 바디 부분 */}
+                    <div class="post_body">
+                        <div class="post_body_content">
+                            
+                        </div>
+                    </div>
 
-                <div class="user-box">
-                    <input type="text" name="" required=""></input>
-                    <label>3</label>
-                </div>
+                    {/* 푸터 부분 */}
+                    <div class="post_footer"ㅣ>
 
-                <div class="user-box">
-                    <input type="password" name="" required=""></input>
-                    <label>4</label>
+                    </div>
                 </div>
-
-                <a href="#">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    POST
-                </a>
             </form>
         </div>
     )
