@@ -36,6 +36,9 @@ const Login = () => {
             console.log("login success");
             const token = res.token; // 토큰
             console.log("token: " + token);
+            //토큰의 변수를 내가 가정하고 한다. 그 변수 이름은 temp_token
+            const temp_token = 1999
+
         } else { // 로그인 실패
             console.log("login fail")
         }
