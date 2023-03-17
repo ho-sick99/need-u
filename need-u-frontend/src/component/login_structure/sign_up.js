@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { hashing } from "./hashing"
 import "./sign_up.css";
+import store from '../../home_store.js';
 
 const Sign_up = () => {
     const [id, setId] = useState('');
@@ -28,6 +29,12 @@ const Sign_up = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        console.log("이까지는 와야함");
+        //테스트
+        alert("가입을 축하드립니다.")
+        store.dispatch({type:"HOME"})
+        //
+
         const hashingPW = await hashing(password); // 비밀번호 해시화
         
         const res = await (await fetch("http://localhost:8088/member/sign_up", {
@@ -46,6 +53,13 @@ const Sign_up = () => {
         console.log(res.msg);
         if (res.status == "true") { // 회원가입 성공
             console.log("회원가입 성공");
+            
+            //여기서 회원가입 완료가 된다.
+            alert("가입을 축하드립니다.")
+            store.dispatch({type:"HOME"})
+            /////////////////////////////
+
+
         } else { // 회원가입 실패
             console.log("회원가입 실패");
         }

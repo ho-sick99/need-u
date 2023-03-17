@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { hashing } from "./hashing"
 import "./login.css";
+import store from '../../home_store.js';
+import store_l from '../../login_store.js';
 
 
 const Login = () => {
@@ -17,28 +19,45 @@ const Login = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        
-        const hashingPW = await hashing(password); // 비밀번호 해시화
 
-        const res = await (await fetch("http://localhost:8088/member/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                "mid": id,
-                "password": hashingPW
-            }),
-        })).json();
+        //테스트
+        alert("로그인을 축하드립니다.")
+        store_l.dispatch({type:"AFTER"})
+        store.dispatch({type:"HOME"})
+        //
 
-        console.log(res.msg);
-        if (res.status == "true") { // 로그인 성공
-            console.log("login success");
-            const token = res.token; // 토큰
-            console.log("token: " + token);
-        } else { // 로그인 실패
-            console.log("login fail")
-        }
+
+        // const hashingPW = await hashing(password); // 비밀번호 해시화
+
+        // const res = await (await fetch("http://localhost:8088/member/login", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //     },
+        //     body: JSON.stringify({
+        //         "mid": id,
+        //         "password": hashingPW
+        //     }),
+        // })).json();
+
+        // console.log(res.msg);
+        // if (res.status == "true") { // 로그인 성공
+        //     console.log("login success");
+        //     const token = res.token; // 토큰
+        //     console.log("token: " + token);
+            
+        //     //토큰의 변수를 내가 가정하고 한다. 그 변수 이름은 temp_token
+        //     const temp_token = 1999
+        //     if (temp_token == 1999){
+        //         alert("로그인을 축하드립니다.")
+        //         store_l.dispatch({type:"AFTER"})
+        //     }
+        //     //////////////////////////////////////////////////////////
+
+
+        // } else { // 로그인 실패
+        //     console.log("login fail")
+        // }
     }
 
     return (
