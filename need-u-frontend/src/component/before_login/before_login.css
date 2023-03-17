@@ -1,0 +1,24 @@
+/* 카테고리3_로그인 및 회원가입*/
+.home_header_kategory_3{
+    display: flex;
+    align-items: center;
+}
+
+/*카테고리3_리스트*/
+.home_header_kategory_3_list{
+    display: flex;
+    width: 300px;
+    margin-top: 20px;
+    justify-content: space-evenly;
+    cursor: pointer;
+}
+
+.home_header_kategory_3_list div{
+    color: white;
+    text-align: center;
+    width: 80px;
+    padding: 5px;
+    border: 3px solid;
+    border-radius: 7px;
+    font-family: 'Bowlby One', cursive;
+}

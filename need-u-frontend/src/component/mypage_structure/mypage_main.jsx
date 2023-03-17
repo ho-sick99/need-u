@@ -4,6 +4,11 @@ import store from '../../home_store.js';
 
 export default class Mypage_main extends Component{
 
+    click_logout = (event) => {
+        window.location.reload();
+        // 클릭 이벤트 처리 로직
+    }
+
     render() { 
         return (
             <div className="mypage_main_body">
@@ -20,7 +25,7 @@ export default class Mypage_main extends Component{
                                 <div className="profile_name">oo님</div>
                             </div>
                             <div className="profile_under">
-                                <div className="profile_under_logout">로그아웃</div>
+                                <div className="profile_under_logout" onClick={this.click_logout}>로그아웃</div>
                             </div>  
                         </div>
                         <div className="mypage_main_body_content_2_main_page_2">
