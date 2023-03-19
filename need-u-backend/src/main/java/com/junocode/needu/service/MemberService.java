@@ -7,6 +7,7 @@ import org.apache.ibatis.javassist.bytecode.DuplicateMemberException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -42,30 +43,37 @@ public class MemberService {
 	public TokenDto createToken(LoginDto dto) {
 		UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(dto.getMid(),
 				dto.getPassword());
-		Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
-		System.out.println(authentication);
-		SecurityContextHolder.getContext().setAuthentication(authentication);
+		try {
+			Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
+			System.out.println(authentication);
+			SecurityContextHolder.getContext().setAuthentication(authentication);
 
-		return new TokenDto(tokenProvider.createToken(authentication));
+			return new TokenDto(tokenProvider.createToken(authentication));
+		} catch (AuthenticationException e) { // 유저 비밀번호 불일치
+			return null;
+		}
+
 	}
 
 	public Map<String, String> login(LoginDto dto) {
 		TokenDto jwt = this.createToken(dto);
+
 		System.out.println(jwt);
 
-		Map<String, String> loginRes = new HashMap<>();
-		Boolean status;
+		Boolean status; // 수정
 		String msg;
+		Map<String, String> loginRes = new HashMap<>();
+		if (jwt == null) {// 로그인 실패
+			status = false;
+			msg = "로그인 실패";
+		} else { // 로그인 성공
+			status = true;
+			msg = "로그인 성공";
 
-		// 로그인 성공
-		status = true;
-		msg = "로그인 성공";
-
+			loginRes.put("token", jwt.getToken());
+		}
 		loginRes.put("status", Boolean.toString(true));
-		loginRes.put("token", jwt.getToken());
 		loginRes.put("msg", msg);
-
-		// 로그인 실패(구현예쩡)
 
 		return loginRes;
 	}
@@ -77,20 +85,17 @@ public class MemberService {
 		}
 
 		MemberAuthority mauth = MemberAuthority.builder().mid(dto.getMid()).authority_id(1).build(); // 유저-권한 매핑 정보 객체
-		Member member = Member.builder()
-				.mid(dto.getMid())
-				.nickname(dto.getNickname())
-				.email(dto.getEmail())
+		Member member = Member.builder().mid(dto.getMid()).nickname(dto.getNickname()).email(dto.getEmail())
 				.password(passwordEncoder.encode(dto.getPassword())).build(); // 유저 정보 객체
-		
+
 		try { // DB 삽입
 			memberAuthorityDao.insertMemberAuthority(mauth);
-			memberDao.insert(member); 
+			memberDao.insert(member);
 		} catch (Exception e) { // 오류 처리
 			e.printStackTrace();
 		}
 
-		Map<String,String> signUpRes = new HashMap<>();
+		Map<String, String> signUpRes = new HashMap<>();
 
 		Boolean status;
 		String msg;
@@ -101,10 +106,9 @@ public class MemberService {
 
 		// 회원가입 실패(구현예정)
 
-
 		signUpRes.put("status", Boolean.toString(true));
 		signUpRes.put(msg, msg);
-		
+
 		return signUpRes;
 	}
 }
