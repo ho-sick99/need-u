@@ -1,8 +1,15 @@
 import React, { Component } from "react";
 import "./board_header.css";
 import store from '../../home_store.js';
+import Before_board from '../before_login/before_board.jsx'
+import After_board from '../after_login/after_board.jsx'
+import store_l from '../../login_store.js';
 
+import {token} from '../login_structure/login.js'
 export default class Board_header extends Component{
+
+
+    state_1 = {number:store_l.getState().number} 
 
     render() { 
         return (
@@ -17,15 +24,10 @@ export default class Board_header extends Component{
                         <h2>◀Go to home</h2>
                     </div>
 
-                    {/* 로고 */}
-                    <div className="hello_text">
-                        <h2>ooo님 안녕하세요!</h2>
-                    </div>
 
-                    {/* 마이페이지*/}
-                    <div className= "board_mypage" onClick={function(){
-                            store.dispatch({type:"MYPAGE"});
-                        }.bind(this)}><img className = "baord_to_mypage" src="img/mypage.png"></img></div>
+                    {this.state_1.number === 0 && <Before_board></Before_board>}   
+                    {this.state_1.number === 1 && <After_board></After_board>}   
+
                 </div>
 
 
