@@ -1,0 +1,19 @@
+.id_hello_text{
+    color: rgb(255, 255, 255);
+    /* margin-right: 30px;  */
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.board_mypage{
+    height: 50px;
+    width: 70px;
+
+    margin-top: 10px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: right;
+    align-items: right;
+
+    margin-right: 30px;
+}

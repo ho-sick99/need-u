@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./mypage_main.css";
 import store from '../../home_store.js';
+import {token} from '../login_structure/login.js'
+
 
 export default class Mypage_main extends Component{
 
@@ -22,7 +24,7 @@ export default class Mypage_main extends Component{
 
                             <div className="profile">
                                 <div className="profile_photo"><img className = "profile_photo_img" src="img/mypage.png"></img></div>
-                                <div className="profile_name">oo님</div>
+                                <div className="profile_name">{token}님</div>
                             </div>
                             <div className="profile_under">
                                 <div className="profile_under_logout" onClick={this.click_logout}>로그아웃</div>
